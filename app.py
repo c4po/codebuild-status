@@ -5,7 +5,7 @@ import boto3
 
 app = Flask(__name__)
 
-client = boto3.client("codebuild")
+client = boto3.client("codebuild", region_name="us-east-1")
 
 @app.template_filter()
 def datetimefilter(value, format='%Y/%m/%d %H:%M'):
