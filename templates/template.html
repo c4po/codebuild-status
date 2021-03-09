@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block title %}{{title}}{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block page %}{{title}}{% endblock %}
+{% block heading %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+  <h4>Render at: {{ current_time | datetimefilter }}</h4>
+  <br>
+  <ul>
+    {% for project in projects %}
+    <li>{{project.name}} <img src="{{project.badge_url}}">| {{project.badge_url}} </li>
+    {% endfor %}
+  </ul>
+  <br>
+{% endblock %}
+{% block footer %}
+{{super()}}
+{% endblock %}
