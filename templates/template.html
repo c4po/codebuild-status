@@ -10,11 +10,24 @@
 {% block content %}
   <h4>Render at: {{ current_time | datetimefilter }}</h4>
   <br>
-  <ul>
+
+<table class="table table-sm table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Project Name</th>
+      <th scope="col">Build Status</th>
+    </tr>
+  </thead>
+  <tbody>
     {% for project in projects %}
-    <li>{{project.name}} <img src="{{project.badge_url}}">| {{project.badge_url}} </li>
+    <tr>
+      <th>{{project.name}}</th>
+      <td><img id="{{project.name}}" src="{{project.badge_url}}"></td>
+    </tr>
     {% endfor %}
-  </ul>
+  <tbody>
+</table>
+
   <br>
 {% endblock %}
 {% block footer %}
