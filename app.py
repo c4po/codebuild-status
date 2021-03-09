@@ -1,9 +1,11 @@
 from flask import Flask, render_template
+from flask_cors import CORS
 import datetime
 import pytz
 import boto3
 
 app = Flask(__name__)
+CORS(app)
 
 client = boto3.client("codebuild", region_name="us-east-1")
 
